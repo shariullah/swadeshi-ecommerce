@@ -1,0 +1,6 @@
+node_modules/
+.env
+weaving.mp4
+uploads/*.mp4
+.DS_Store
+*.log
