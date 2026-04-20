@@ -41,8 +41,10 @@ if (!fs.existsSync('./uploads/avatars')) {
     fs.mkdirSync('./uploads/avatars', { recursive: true });
 }
 
-// ============ SQLite DATABASE SETUP ============
-const db = new sqlite3.Database('./swadeshi.db');
+// Use Render's persistent disk for database (prevents data loss)
+const dbPath = '/data/swadeshi.db';
+const db = new sqlite3.Database(dbPath);
+console.log(`✅ Database using persistent storage at: ${dbPath}`);
 
 // Create tables
 db.serialize(() => {
